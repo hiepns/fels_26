@@ -18,13 +18,13 @@ User.create!(name:  "Ta Thi Thuy",
                              activated: true,
                activated_at: Time.zone.now)
 end
- 
-# # Following relationships
-# users = User.all
-# user  = users.first
-# following = users[2..10]
-# followers = users[3..20]
-# following.each { |followed| user.follow(followed) }
-# followers.each { |follower| follower.follow(user) }
+# Following relationships
+users = User.all
+user  = users.first
+following = users[1..20]
+followers = users[10..30]
+following.each { |followed| user.follow(followed) }
+followers.each { |follower| follower.follow(user) }
+
 
 
