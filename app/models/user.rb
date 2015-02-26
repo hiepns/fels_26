@@ -7,6 +7,12 @@ class User < ActiveRecord::Base
                                    dependent:   :destroy
   has_many :followings, through: :active_relationships,  source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
+  has_many :lessons, dependent: :destroy
+  has_attached_file :avatar,
+    styles: {:medium => "120x120>", :thumb => "80x80>"},
+    default_url: "/noavatar/:style/missing.png"
+  validates_attachment :avatar,
+    content_type: {:content_type => ["image/jpeg", "image/gif", "image/png"]}
   attr_accessor :remember_token, :activation_token, :reset_token
   before_save   :downcase_email
   before_create :create_activation_digest
