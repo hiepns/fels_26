@@ -1,6 +1,6 @@
-module ApplicationHelper
+module Admin::AdminsHelper
   def full_title(page_title = '')
-    base_title = "Framgia E-learning"
+    base_title = "Admin Panel"
     if page_title.empty?
       base_title
     else

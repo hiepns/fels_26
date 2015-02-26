@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
 
+  namespace :admin do
+    get '' => 'dashboards#index'
+    get 'login' => 'sessions#new'
+    post   'login' => 'sessions#create'
+    delete 'logout' => 'sessions#destroy'
+    resources :users
+  end
+
   get 'followers' => 'followers#index'
 
   get 'followings' =>'followings#index'
@@ -9,8 +17,8 @@ Rails.application.routes.draw do
   get 'password_resets/edit'
 
   get 'login'=>'sessions#new'
-  post   'login'   => 'sessions#create'
-  delete 'logout'  => 'sessions#destroy'
+  post 'login' => 'sessions#create'
+  delete 'logout' => 'sessions#destroy'
   get 'signup'=>'users#new'
 
   get 'home' => 'static_pages#home'
