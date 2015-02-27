@@ -1,6 +1,6 @@
 /*
  *= require font-awesome
+ *= require_tree ./admin/
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import "admin/AdminLTE.css"

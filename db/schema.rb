@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150226081302) do
+ActiveRecord::Schema.define(version: 20150227073715) do
 
   create_table "answers", force: :cascade do |t|
     t.string   "answer",     limit: 255
@@ -24,11 +24,15 @@ ActiveRecord::Schema.define(version: 20150226081302) do
   add_index "answers", ["word_id"], name: "index_answers_on_word_id", using: :btree
 
   create_table "categories", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.string   "icon",       limit: 255
-    t.integer  "total",      limit: 4
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string   "name",              limit: 255
+    t.string   "icon",              limit: 255
+    t.integer  "total",             limit: 4
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.string   "icon_file_name",    limit: 255
+    t.string   "icon_content_type", limit: 255
+    t.integer  "icon_file_size",    limit: 4
+    t.datetime "icon_updated_at"
   end
 
   create_table "lesson_words", force: :cascade do |t|

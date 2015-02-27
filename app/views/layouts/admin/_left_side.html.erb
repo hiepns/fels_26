@@ -1,41 +1,38 @@
 <!-- Left side column. contains the logo and sidebar -->
 <aside class="main-sidebar">
-  <!-- sidebar: style can be found in sidebar.less -->
+  <!-- sidebar -->
   <section class="sidebar">
-    <!-- Sidebar user panel -->
-    <div class="user-panel">
-      <div class="pull-left image">
-        <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
-      </div>
-      <div class="pull-left info">
-        <p>
-          Username
-        </p>
-      </div>
-    </div>
-    <!-- sidebar menu: : style can be found in sidebar.less -->
+    <!-- sidebar menu -->
     <ul class="sidebar-menu">
       <li class="header">
         MAIN NAVIGATION
       </li>
-      <li class="active">
-        <a href="#"> <i class="fa fa-dashboard"></i> <span>Dashboard</span> </a>
+      <li class="<%= is_active?('/admin/dashboards') %>">
+        <%= link_to '<i class="fa fa-dashboard"></i><span>Dashboard</span>'.html_safe, admin_path %>
       </li>
-      <li >
-        <a href="#"> <i class="fa fa-user"></i> <span>User</span> </a>
-      </li>
-      <li class="treeview">
-        <a href="#"> <i class="fa fa-folder"></i> <span>Categories</span><i class="fa fa-angle-left pull-right"></i></a>
+      <li class="<%= is_active?(admin_users_path) %>">
+        <%= link_to '<i class="fa fa-user"></i><span>User</span><i class="fa fa-angle-left pull-right"></i>'.html_safe, admin_users_path %>
         <ul class="treeview-menu">
           <li>
-            <a href="pages/charts/morris.html"><i class="fa fa-circle-o"></i> Manager</a>
+            <%= link_to '<i class="fa fa-circle-o"></i> Manager'.html_safe, admin_users_path %>
           </li>
           <li>
-            <a href="pages/charts/flot.html"><i class="fa fa-circle-o"></i> Add new</a>
+            <%= link_to '<i class="fa fa-circle-o"></i> Add new'.html_safe, new_admin_user_path %>
           </li>
         </ul>
       </li>
-      <li>
+      <li class="<%= is_active?(admin_categories_path) %>">
+        <%= link_to '<i class="fa fa-folder"></i><span>Categories</span><i class="fa fa-angle-left pull-right"></i>'.html_safe, admin_categories_path %>
+        <ul class="treeview-menu">
+          <li>
+            <%= link_to '<i class="fa fa-circle-o"></i> Manager'.html_safe, admin_categories_url %>
+          </li>
+          <li>
+            <%= link_to '<i class="fa fa-circle-o"></i> Add new'.html_safe, admin_categories_new_path %>
+          </li>
+        </ul>
+      </li>
+      <li class="treeview">
         <a href="#"> <i class="fa fa-list-ul"></i> <span>Word List</span> <i class="fa fa-angle-left pull-right"></i> </a>
         <ul class="treeview-menu">
           <li>
