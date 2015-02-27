@@ -6,9 +6,8 @@ class Admin::UsersController < Admin::AdminsController
   def create
     @user = User.new user_params
     if @user.save
-      UserMailer.account_activation(@user).deliver
-      flash[:info] = "Please check your email to activate your account."
-      redirect_to root_url
+      flash[:success] = "Created success"
+      redirect_to admin_users_url
     else
       render "new"
     end
@@ -22,14 +21,14 @@ class Admin::UsersController < Admin::AdminsController
     @user = User.find params[:id]
     if @user.update_attributes user_params
       flash[:success] = "Profile updated"
-      redirect_to @user
+      redirect_to admin_users_url
     else
       render "edit"
     end
   end
 
   def index
-    @users = User.paginate page: params[:page], per_page: 10
+    @users = User.all
   end
 
   def show
@@ -40,14 +39,13 @@ class Admin::UsersController < Admin::AdminsController
   def destroy
     User.find(params[:id]).destroy
     flash[:success] = "User deleted"
-    redirect_to users_url
+    redirect_to admin_users_url
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :password,
-    :password_confirmation)
+    params.require(:user).permit :name, :email, :password, :password_confirmation, :avatar, :activated
   end
 
 end
