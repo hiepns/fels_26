@@ -1,5 +1,4 @@
 class Admin::UsersController < Admin::AdminsController
-  before_action :logged_in_admin, only: [:index, :edit, :update, :destroy]
   def new
     @user = User.new
   end
@@ -49,14 +48,6 @@ class Admin::UsersController < Admin::AdminsController
   def user_params
     params.require(:user).permit(:name, :email, :password,
     :password_confirmation)
-  end
-
-  def logged_in_admin
-    unless logged_in? || current_user.admin?
-      store_location
-      flash[:danger] = "You aren't admin or not loged in"
-      redirect_to admin_login_url
-    end
   end
 
 end

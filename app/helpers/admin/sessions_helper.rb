@@ -7,7 +7,7 @@ module Admin::SessionsHelper
   def remember user
     user.remember
     cookies.permanent.signed[:admin_id] = user.id
-    cookies.permanent[:remember_token] = user.remember_token
+    cookies.permanent[:admin_remember_token] = user.remember_token
   end
 
   def current_user
@@ -15,7 +15,7 @@ module Admin::SessionsHelper
       @current_user ||= User.find_by id: user_id
     elsif user_id = cookies.signed[:admin_id]
       user = User.find_by id: user_id
-       if user && user.authenticated?(:remember, cookies[:remember_token])
+       if user && user.authenticated?(:remember, cookies[:admin_remember_token])
         log_in user
         @current_user = user
       end
@@ -28,7 +28,7 @@ module Admin::SessionsHelper
   def forget user
     user.forget
     cookies.delete :admin_id
-    cookies.delete :remember_token
+    cookies.delete :admin_remember_token
   end
 
   def log_out

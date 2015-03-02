@@ -1,4 +1,17 @@
 Rails.application.routes.draw do
+  resources :categories
+
+  get 'categories/new'
+
+  get 'categories/create'
+
+  get 'categories/show'
+
+  get 'categories/edit'
+
+  get 'categories/update'
+
+  get 'categories/destroy'
 
   namespace :admin do
     get '' => 'dashboards#index'
@@ -6,6 +19,15 @@ Rails.application.routes.draw do
     post   'login' => 'sessions#create'
     delete 'logout' => 'sessions#destroy'
     resources :users
+    resources :categories
+
+    get 'categories' => 'categories#index'
+    get 'categories/new'
+    post 'categories' => 'categories#create'
+    get 'categories/show'
+    get 'categories/edit'
+    get 'categories/update'
+    get 'categories/destroy'
   end
 
   get 'followers' => 'followers#index'

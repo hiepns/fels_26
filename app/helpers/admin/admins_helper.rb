@@ -7,4 +7,8 @@ module Admin::AdminsHelper
       "#{page_title} | #{base_title}"
     end
   end
+  
+  def is_active?(link_path)
+    '/' + params[:controller] == link_path ? 'active' : ''
+  end
 end
