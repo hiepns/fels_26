@@ -1,17 +1,7 @@
 Rails.application.routes.draw do
-  resources :categories
 
-  get 'categories/new'
-
-  get 'categories/create'
-
-  get 'categories/show'
-
-  get 'categories/edit'
-
-  get 'categories/update'
-
-  get 'categories/destroy'
+  get 'word_list'=>'word_list#index'
+  post 'word_list'=>'word_list#index'
 
   namespace :admin do
     get '' => 'dashboards#index'
@@ -20,14 +10,6 @@ Rails.application.routes.draw do
     delete 'logout' => 'sessions#destroy'
     resources :users
     resources :categories
-
-    get 'categories' => 'categories#index'
-    get 'categories/new'
-    post 'categories' => 'categories#create'
-    get 'categories/show'
-    get 'categories/edit'
-    get 'categories/update'
-    get 'categories/destroy'
   end
 
   get 'followers' => 'followers#index'
@@ -55,10 +37,12 @@ Rails.application.routes.draw do
   resources :users do
     resources :followings,:followers
   end
+  resources :categories
   resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]
   resources :relationships,       only: [:create, :destroy]
-
+  resources :categories
+  resources :words
 # Example resource route with options:
 #   resources :products do
 #     member do
