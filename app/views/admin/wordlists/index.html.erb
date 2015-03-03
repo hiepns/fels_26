@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="col-md-12">
+    <span>Choose category: </span>
+    <%= select_tag :category, options_for_select(@categories), data: {remote: true, url: admin_wordlists_path} %>
+  </div>
+  <div class="col-md-12">
+    <div class="box">
+      <div class="box-header">
+        <h3 class="box-title">Wordlist</h3>
+      </div><!-- /.box-header -->
+      <div class="box-body" id="table-box">
+        <%= render 'admin/wordlists/table'%>
+      </div><!-- /.box-body -->
+    </div><!-- /.box -->
+  </div>
+</div>

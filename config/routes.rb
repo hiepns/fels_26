@@ -11,6 +11,9 @@ Rails.application.routes.draw do
     delete 'logout' => 'sessions#destroy'
     resources :users
     resources :categories
+    resources :words
+    resources :wordlists
+    get 'wordlists' => 'wordlists#index'
   end
 
   get 'followers' => 'followers#index'
