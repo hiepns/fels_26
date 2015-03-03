@@ -1,0 +1,22 @@
+<% provide(:title, 'Words_list') %>
+<div class="row">
+  <%= form_tag({controller: 'word_list', action: 'index'}, class: 'wordlist', remote: true) do %>
+    <h3>Categories:</h3>
+    <BR>
+    <%= select_tag :wordlist, options_for_select(@list_categories), class: 'col-xs-2' %>
+    <%= label_tag :learned, class:'radio-inline' do %>
+      <%= radio_button_tag :choose, 'learned' %> Learned
+    <% end %>
+    <%= label_tag :not_learned, class:'radio-inline' do %>
+      <%= radio_button_tag :choose,'not learned' %>Not Learned
+    <% end %>
+    <%= label_tag :all, class:'radio-inline' do %>
+      <%= radio_button_tag :choose,'all', true %>All
+    <% end %>
+    <div class='button'>
+      <%= submit_tag 'Filter', class: 'btn btn-primary btn-default' %>
+      <%= submit_tag 'PDF', class: 'btn btn-primary btn-default' %>
+    </div>
+  <% end %>
+</div>
+<div id="list"></div>

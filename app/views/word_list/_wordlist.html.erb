@@ -1,0 +1,17 @@
+<div class="row">
+  <% @category.words.each do |word| %>
+    <div class="col-md-6">
+      <div class="col-md-6 ">
+        <%= word.word %>
+      </div>
+      <% word.answers.each do |ans| %>
+        <% if ans.correct %>
+          <div class="col-md-6 ">
+            <%= ans.answer %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+
+</div>
