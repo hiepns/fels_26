@@ -28,18 +28,18 @@
             <%= link_to '<i class="fa fa-circle-o"></i> Manager'.html_safe, admin_categories_url %>
           </li>
           <li>
-            <%= link_to '<i class="fa fa-circle-o"></i> Add new'.html_safe, admin_categories_new_path %>
+            <%= link_to '<i class="fa fa-circle-o"></i> Add new'.html_safe, new_admin_category_path %>
           </li>
         </ul>
       </li>
-      <li class="treeview">
-        <a href="#"> <i class="fa fa-list-ul"></i> <span>Word List</span> <i class="fa fa-angle-left pull-right"></i> </a>
+      <li class="<%= is_active?(admin_wordlists_path) %>">
+        <%= link_to '<i class="fa fa-folder"></i><span>Word List</span><i class="fa fa-angle-left pull-right"></i>'.html_safe, admin_wordlists_path %>
         <ul class="treeview-menu">
           <li>
-            <a href="pages/charts/morris.html"><i class="fa fa-circle-o"></i> Manager</a>
+            <%= link_to '<i class="fa fa-circle-o"></i> Manager'.html_safe, admin_wordlists_path %>
           </li>
           <li>
-            <a href="pages/charts/flot.html"><i class="fa fa-circle-o"></i> Add new</a>
+            <%= link_to '<i class="fa fa-circle-o"></i> Add new'.html_safe, new_admin_wordlist_path %>
           </li>
         </ul>
       </li>

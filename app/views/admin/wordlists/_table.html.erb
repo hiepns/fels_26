@@ -1,0 +1,58 @@
+<table id="data-table" class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Word</th>
+      <th>True Answer</th>
+      <th>Category</th>
+      <th>Answer 1</th>
+      <th>Answer 2</th>
+      <th>Answer 3</th>
+      <th>Tools</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @wordlist.each do |word| %>
+    <tr>
+      <td><%= word.word %></td>
+      <% word.answers.each do |ans| %>
+        <% if ans.correct %>
+          <td><%= ans.answer %></td>
+        <% end %>
+      <% end %>
+      <% word.answers.each do |ans| %>
+        <% unless ans.correct %>
+          <td><%= ans.answer %></td>
+        <% end %>
+      <% end %>
+      <td><%= word.category.name %></td>
+      <td>
+      <div class="btn-group">
+        <button class="btn btn-info" type="button">
+          Action
+        </button>
+        <button data-toggle="dropdown" class="btn btn-info dropdown-toggle" type="button" aria-expanded="false">
+          <span class="caret"></span>
+          <span class="sr-only">Toggle Dropdown</span>
+        </button>
+        <ul role="menu" class="dropdown-menu">
+          <li>
+            <%= link_to 'Edit', edit_admin_wordlist_url(word) %>
+          </li>
+          <li>
+            <%= link_to "Delete", admin_word_path(word), method: :delete, data: {confirm: "You sure?"} %>
+          </li>
+        </ul>
+      </div></td>
+    </tr>
+    <% end %>
+  </tbody>
+  <tfoot>
+    <tr>
+      <th>Icon</th>
+      <th>Name</th>
+      <th>Total</th>
+      <th>Created at</th>
+      <th>Tools</th>
+    </tr>
+  </tfoot>
+</table>
