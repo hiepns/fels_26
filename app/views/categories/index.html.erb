@@ -1,0 +1,28 @@
+<% provide(:title, 'Categories') %>
+<% if logged_in? %>
+  <div class="row ">
+    <% @categories_list.each do |f|%>
+      <div class="col-md-8 col-md-offset-2 cate">
+        <div class="col-md-6">
+            <%= image_tag f.icon.url(:medium) %>
+        </div>
+        <div class="col-md-6">
+          <h4><%= f.name %></h4>
+          <h6> You are learned 20/500</h6>
+          <p>
+            text.text text.text text.text texttext.text text.text text.text texttext.text text.text text.text texttext.text text.text text.text texttext.text text.text text.text texttext.text text.text text.text text
+          </p>
+          <div>
+            <%= link_to "Start",' #', class: "btn btn-primary start" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <div class="center jumbotron">
+    <p>
+      <%= link_to "Please Login",login_path, class: "btn btn-primary" %>
+    </p>
+  </div>
+<% end %>
