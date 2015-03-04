@@ -46,4 +46,6 @@ gem "font-awesome-rails"
 # Use debugger
 gem 'byebug', group: [:development, :test]
 gem "paperclip", "~> 4.2"
+gem 'prawn'
+gem 'prawn-table'
 

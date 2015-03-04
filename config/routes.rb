@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
-  get 'categories'=>'categories#index'
-
-  get 'word_list'=>'word_list#index'
-  post 'word_list'=>'word_list#index'
+  get 'categories' => 'categories#index'
+  get 'word_list' => 'word_list#index'
+  post 'word_list' => 'word_list#index'
 
   namespace :admin do
     get '' => 'dashboards#index'
@@ -19,15 +18,14 @@ Rails.application.routes.draw do
   get 'followers' => 'followers#index'
 
   get 'followings' =>'followings#index'
-
-  get 'password_resets/new'
+   get 'password_resets/new'
 
   get 'password_resets/edit'
 
-  get 'login'=>'sessions#new'
+  get 'login' =>'sessions#new'
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
-  get 'signup'=>'users#new'
+  get 'signup' => 'users#new'
 
   get 'home' => 'static_pages#home'
 

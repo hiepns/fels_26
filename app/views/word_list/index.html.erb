@@ -15,7 +15,7 @@
     <% end %>
     <div class='button'>
       <%= submit_tag 'Filter', class: 'btn btn-primary btn-default' %>
-      <%= submit_tag 'PDF', class: 'btn btn-primary btn-default' %>
+      <%= link_to 'PDF', word_list_path(format: 'pdf'), class: 'btn btn-primary btn-default' %>
     </div>
   <% end %>
 </div>
