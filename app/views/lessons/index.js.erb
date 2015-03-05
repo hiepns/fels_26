@@ -1,0 +1,14 @@
+<% if true_answer(@random_word[@current - 2]).id == @clicked %>
+  $('#<%= @clicked %>').removeClass('btn-primary');
+  $('#<%= @clicked %>').addClass('btn-success');  
+<% else %>
+  $('#<%= @clicked %>').removeClass('btn-primary');
+  $('#<%= @clicked %>').addClass('btn-danger');  
+<% end %>
+setTimeout(
+  function() 
+  {
+    $('#question').html("<%= j render(partial: 'lessons/question') %>");
+    $('#count').html("<%= @current %>/20");
+
+  }, 1000);

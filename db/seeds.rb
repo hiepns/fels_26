@@ -75,6 +75,11 @@ Answer.create!(answer: "Đầu",correct:false,word_id:6,created_at: Time.zone.no
 Answer.create!(answer: "Chân",correct:true,word_id:6,created_at: Time.zone.now)
 Answer.create!(answer: "Mũi",correct:false,word_id:6,created_at: Time.zone.now)
 Answer.create!(answer: "Mắt",correct:false,word_id:6,created_at: Time.zone.now)
+
+Lesson.create!(category_id: 1, user_id: 1, created_at: Time.zone.now)
+LessonWord.create!(lesson_id: 1, word_id: 1, answer_id: 1)
+LessonWord.create!(lesson_id: 1, word_id: 2, answer_id: 4)
+
 30.times do |n|
   name  = Faker::Name.name
   email = "example-#{n+1}@railstutorial.org"

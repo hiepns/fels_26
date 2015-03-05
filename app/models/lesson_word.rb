@@ -1,4 +1,5 @@
 class LessonWord < ActiveRecord::Base
   belongs_to :lesson
-  belongs_to :word
+  has_one :word
+  accepts_nested_attributes_for :word
 end

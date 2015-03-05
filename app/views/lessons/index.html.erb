@@ -1,0 +1,10 @@
+<div class="row">
+  <div class="col-md-6 text-center">
+    <h3><%= @category.name %></h3>
+    <h4 id="count"><%= @current %>/20</h4>
+  </div>
+</div>
+<div class="row" id="question">
+  <%= render 'lessons/question' %>
+</div>
+

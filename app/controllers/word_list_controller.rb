@@ -1,4 +1,5 @@
 class WordListController < ApplicationController
+  before_action :logged_in_user
   def index
     @list_categories = Category.all.map(&:name)
     @category_selected = params[:wordlist].nil? ? Category.first.name : params[:wordlist]
