@@ -8,8 +8,9 @@ class User < ActiveRecord::Base
   has_many :followings, through: :active_relationships,  source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
   has_many :lessons, dependent: :destroy
+  accepts_nested_attributes_for :lessons
   has_attached_file :avatar,
-    styles: {:medium => "120x120>", :thumb => "80x80>"},
+    styles: {medium: "120x120>", thumb: "80x80>"},
     default_url: "/noavatar/:style/missing.png"
   validates_attachment :avatar,
     content_type: {:content_type => ["image/jpeg", "image/gif", "image/png"]}

@@ -1,0 +1,13 @@
+<div class="col-md-6 text-center">
+  <p class="word">
+    <%= @word.word %>
+  </p>
+  <button class="btn btn-primary">
+    <span class="glyphicon glyphicon-bullhorn"></span> Speak
+  </button>
+</div>
+<div class="col-md-6">
+  <% @word.answers.each do |ans| %>
+    <%= link_to ans.answer, user_category_lessons_path(current: @current + 1 , id: ans.id), class: "btn btn-block btn-primary answer", id: ans.id, remote: true %>
+  <% end %>
+</div>

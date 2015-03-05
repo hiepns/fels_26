@@ -38,13 +38,17 @@ Rails.application.routes.draw do
   root 'static_pages#home'
   resources :users do
     resources :followings,:followers
+    resources :categories do
+      resources :lessons
+    end
+
   end
   resources :categories
   resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]
   resources :relationships,       only: [:create, :destroy]
-  resources :categories
   resources :words
+
 # Example resource route with options:
 #   resources :products do
 #     member do
