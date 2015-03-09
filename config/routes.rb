@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'result' => 'result#index'
+
+  get 'result/show'
+
   get 'categories' => 'categories#index'
   get 'word_list' => 'word_list#index'
   post 'word_list' => 'word_list#index'

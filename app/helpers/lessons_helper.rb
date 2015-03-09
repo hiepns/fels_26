@@ -12,7 +12,7 @@ module LessonsHelper
     return learned_word
   end
 
-  def get_random_word(learned_word)
+  def get_words(learned_word)
     Word.where.not(id: learned_word).limit 20
   end
 
