@@ -36,12 +36,11 @@ ActiveRecord::Schema.define(version: 20150227073715) do
   end
 
   create_table "lesson_words", force: :cascade do |t|
-    t.integer  "chosen_answer", limit: 4
-    t.integer  "lesson_id",     limit: 4
-    t.integer  "word_id",       limit: 4
-    t.integer  "answer_id",     limit: 4
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.integer  "lesson_id",  limit: 4
+    t.integer  "word_id",    limit: 4
+    t.integer  "answer_id",  limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
   add_index "lesson_words", ["answer_id"], name: "index_lesson_words_on_answer_id", using: :btree
@@ -50,11 +49,10 @@ ActiveRecord::Schema.define(version: 20150227073715) do
   add_index "lesson_words", ["word_id"], name: "index_lesson_words_on_word_id", using: :btree
 
   create_table "lessons", force: :cascade do |t|
-    t.integer  "lesson_number", limit: 4
-    t.integer  "category_id",   limit: 4
-    t.integer  "user_id",       limit: 4
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.integer  "category_id", limit: 4
+    t.integer  "user_id",     limit: 4
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
   end
 
   add_index "lessons", ["category_id", "created_at"], name: "index_lessons_on_category_id_and_created_at", using: :btree

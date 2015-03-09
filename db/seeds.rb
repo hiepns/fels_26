@@ -80,23 +80,23 @@ Lesson.create!(category_id: 1, user_id: 1, created_at: Time.zone.now)
 LessonWord.create!(lesson_id: 1, word_id: 1, answer_id: 1)
 LessonWord.create!(lesson_id: 1, word_id: 2, answer_id: 4)
 
-30.times do |n|
-  name  = Faker::Name.name
-  email = "example-#{n+1}@railstutorial.org"
-  password = "password"
-  User.create!(name:  name,
-               email: email,
-               password:              password,
-               password_confirmation: password,
-                             activated: true,
-               activated_at: Time.zone.now)
-end
-# Following relationships
-users = User.all
-user  = users.first
-following = users[1..20]
-followers = users[10..30]
-following.each { |followed| user.follow(followed) }
-followers.each { |follower| follower.follow(user) }
+# 30.times do |n|
+  # name  = Faker::Name.name
+  # email = "example-#{n+1}@railstutorial.org"
+  # password = "password"
+  # User.create!(name:  name,
+               # email: email,
+               # password:              password,
+               # password_confirmation: password,
+                             # activated: true,
+               # activated_at: Time.zone.now)
+# end
+# # Following relationships
+# users = User.all
+# user  = users.first
+# following = users[1..20]
+# followers = users[10..30]
+# following.each { |followed| user.follow(followed) }
+# followers.each { |follower| follower.follow(user) }
 
 

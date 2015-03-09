@@ -1,0 +1,37 @@
+<% provide(:title, 'Result') %>
+<div class = "row">
+  <div class = "col-md-6 col-md-offset-3">
+    <div class = "col-md-6">
+      <h4>Basic500 Result</h4>
+    </div>
+    <div class = "col-md-6">
+      <h4> 3/20</h4>
+    </div>
+  </div>
+<% @lesson_words.each do |lesson_word| %>
+<% true_answer = Answer.find_by(word_id: lesson_word.word_id, correct: true) %>
+  <div class = "col-md-8 col-md-offset-2">
+    </br>
+    <div class = "col-md-6">
+      <div class = "col-md-6">
+        <% if true_answer.id == lesson_word.answer_id %>
+          <span class="glyphicon glyphicon-ok"></span>
+        <% else %>
+          <span class="glyphicon glyphicon-remove"></span>
+        <% end %>
+      </div>
+      <div class = "col-md-6">
+        <%= Word.find_by(id: lesson_word.word_id).word %>
+      </div>
+    </div>
+    <div class = "col-md-6">
+      <div class = "col-md-6">
+       <%=  true_answer.answer %>
+      </div>
+      <div class = "col-md-6">
+        <Input type = "button" value = "Speak " id= "speak" class = "btn btn-success btn-sm">
+      </div>
+    </div>
+  </div>
+<% end %>
+</div>
