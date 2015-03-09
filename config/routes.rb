@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'result' => 'result#index'
 
-  get 'result/show'
+  get 'speak' =>'result#show'
 
   get 'categories' => 'categories#index'
   get 'word_list' => 'word_list#index'

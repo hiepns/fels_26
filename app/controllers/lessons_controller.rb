@@ -3,8 +3,8 @@ class LessonsController < ApplicationController
   before_action :logged_in_user
   include LessonsHelper
   def index
-    # session[:answer] = nil
-    # session[:current] = nil
+    session[:answer] = nil
+    session[:current] = nil
     @user_id = params[:user_id]
     @category_id = params[:category_id]
 
@@ -52,14 +52,5 @@ class LessonsController < ApplicationController
     end
 
   end
-
-  def new
-  end
-
-  def create
-  end
-
-  def show
-  end
-
+  
 end

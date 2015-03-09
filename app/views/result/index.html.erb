@@ -10,6 +10,7 @@
   </div>
 <% @lesson_words.each do |lesson_word| %>
 <% true_answer = Answer.find_by(word_id: lesson_word.word_id, correct: true) %>
+<% jp = Word.find_by(id: lesson_word.word_id).word %>
   <div class = "col-md-8 col-md-offset-2">
     </br>
     <div class = "col-md-6">
@@ -21,7 +22,7 @@
         <% end %>
       </div>
       <div class = "col-md-6">
-        <%= Word.find_by(id: lesson_word.word_id).word %>
+        <%= jp %>
       </div>
     </div>
     <div class = "col-md-6">
@@ -29,7 +30,7 @@
        <%=  true_answer.answer %>
       </div>
       <div class = "col-md-6">
-        <Input type = "button" value = "Speak " id= "speak" class = "btn btn-success btn-sm">
+        <%= link_to '<span class="glyphicon glyphicon-bullhorn"></span> Speak'.html_safe, speak_path(word: jp), class: 'btn btn-primary btn-sm' %>
       </div>
     </div>
   </div>
