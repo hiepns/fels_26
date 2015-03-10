@@ -1,10 +1,9 @@
 <div class="col-md-6 text-center">
+  <%jp = @word.word %>
   <p class="word">
     <%= @word.word %>
   </p>
-  <button class="btn btn-primary">
-    <span class="glyphicon glyphicon-bullhorn"></span> Speak
-  </button>
+  <%= link_to '<span class="glyphicon glyphicon-bullhorn"></span> Speak'.html_safe, speak_path(word: jp), class: 'btn btn-primary btn-sm' %>
 </div>
 <div class="col-md-6">
   <% @word.answers.each do |ans| %>

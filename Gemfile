@@ -48,4 +48,5 @@ gem 'byebug', group: [:development, :test]
 gem "paperclip", "~> 4.2"
 gem 'prawn'
 gem 'prawn-table'
+gem 'tts_based_on_google'
 
