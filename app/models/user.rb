@@ -92,6 +92,23 @@ class User < ActiveRecord::Base
   def relation_with(user)
     self.active_relationships.find_by followed: user
   end
+  
+  def feed
+    following_ids = Relationship.find_by(follower_id: id).followed_id
+    lesson = Lesson.where('user_id = ? OR user_id = ?', following_ids, id)
+    feeds = []
+    lesson.each_with_index do |less, i|
+      feeds[i] = []
+      user = User.find_by id: less.user_id
+      category = Category.find_by id: less.category_id
+      time = less.created_at
+      feeds[i][0] = user.avatar
+      name = user.name == self.name ? 'You' : user.name
+      feeds[i][1] = name + " learned 20 words in Lesson " + category.name+ " - " + time.to_s
+    end
+    return feeds
+    
+  end
 
  private
   def downcase_email
