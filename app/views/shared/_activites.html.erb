@@ -1,1 +1,9 @@
-List activites
+<% if @feed_items.any? %>
+  <% @feed_items.each do |f| %>
+    <p>
+      <%= image_tag(f[0]) %>
+      <%= f[1] %>
+    </p>
+  <% end %>
+  <%= will_paginate @feed_items %>
+<% end %>
