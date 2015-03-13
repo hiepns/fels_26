@@ -1,10 +1,10 @@
 class LessonsController < ApplicationController
-  MAX_WORD = 4
+  MAX_WORD = 5
   before_action :logged_in_user
   include LessonsHelper
   def index
-    session[:answer] = nil
-    session[:current] = nil
+    # session[:answer] = nil
+    # session[:current] = nil
     @user_id = params[:user_id]
     @category_id = params[:category_id]
 
@@ -13,11 +13,9 @@ class LessonsController < ApplicationController
     @current = params[:current].nil? ? 1 : params[:current].to_i
     @current = !session[:current].nil? && @current < session[:current] ? session[:current] : @current
     @category = Category.find_by id: @category_id
-    # session[:answer] = nil
-    # session[:current] = nil
-    @learned_word = get_learned_word @user_id, @category_id
-    @wordlist = get_words @learned_word
     # byebug
+    @learned_word = get_learned_word @user_id, @category_id
+    @wordlist = get_words @learned_word, @category_id
     if @wordlist.size < MAX_WORD
       flash[:danger] = 'Not enough 20 words to start new lesson!'
       redirect_to categories_url

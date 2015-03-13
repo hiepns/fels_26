@@ -94,7 +94,8 @@ class User < ActiveRecord::Base
   end
   
   def feed
-    following_ids = Relationship.find_by(follower_id: id).followed_id
+    relationship = Relationship.find_by(follower_id: id)
+    following_ids = relationship.followed_id unless relationship.nil?
     lesson = Lesson.where('user_id = ? OR user_id = ?', following_ids, id)
     feeds = []
     lesson.each_with_index do |less, i|
