@@ -12,8 +12,12 @@ module LessonsHelper
     return learned_word
   end
 
-  def get_words(learned_word)
-    Word.where.not(id: learned_word).limit 20
+  def get_words(learned_word, category_id)
+    unless learned_word.empty?
+      Word.where('category_id = ? AND id NOT IN ?', category_id,  learned_word).limit 20
+    else
+      Word.where(category_id: category_id).limit 20
+    end
   end
 
   def true_answer(word)

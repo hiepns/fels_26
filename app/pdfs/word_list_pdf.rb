@@ -1,8 +1,7 @@
 class WordListPdf < Prawn::Document
-  def initialize(category)
+  def initialize(wordlist)
     super()
-    @category = category
-    @words = @category.words
+    @words = wordlist
     print
 
   end

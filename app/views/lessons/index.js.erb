@@ -1,5 +1,3 @@
-
-
 <% if true_answer(@wordlist[@current - 2]).id == @clicked %>
   $('#<%= @clicked %>').removeClass('btn-primary');
   $('#<%= @clicked %>').addClass('btn-success');
