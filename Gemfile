@@ -49,4 +49,8 @@ gem "paperclip", "~> 4.2"
 gem 'prawn'
 gem 'prawn-table'
 gem 'tts_based_on_google'
+gem "rspec-rails", group: [:development, :test]
+gem "factory_girl_rails", group: :test
+gem 'shoulda-matchers', group: :test
+
 
